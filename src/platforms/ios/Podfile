@@ -1,0 +1,22 @@
+platform :ios, '11.2'
+
+use_frameworks!
+
+pod 'MapboxVisionNativeAll', :podspec => 'https://api.mapbox.com/downloads/v1/vision/ios/mapbox-vision-native-all/0.3.0.podspec?access_token=sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoiY2p1c3F5eGVpMDA1eTRlbzJpOXJwdDIxMCJ9.OZRITqde9clot1E8Za_OsQ'
+
+# Vision only
+pod "MapboxVision", :git => 'https://github.com/mapbox/mapbox-vision-ios.git', :tag => 'v0.3.0'
+
+# AR
+pod "MapboxVisionAR", :git => 'https://github.com/mapbox/mapbox-vision-ios.git', :tag => 'v0.3.0'
+
+# Safety
+pod "MapboxVisionSafety", :git => 'https://github.com/mapbox/mapbox-vision-ios.git', :tag => 'v0.3.0'
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['SWIFT_VERSION'] = '4.2'
+     end
+   end
+end

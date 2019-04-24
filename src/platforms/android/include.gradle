@@ -1,0 +1,27 @@
+/* Include.gradle configuration: http://docs.nativescript.org/plugins/plugins#includegradle-specification */
+
+android {
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+}
+
+repositories {
+    maven {
+        url 'https://api.mapbox.com/downloads/v1/vision/android/maven'
+        authentication {
+            basic(BasicAuthentication)
+        }
+        credentials {
+            username = 'mapbox'
+            password = 'sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoiY2p1c3F5eGVpMDA1eTRlbzJpOXJwdDIxMCJ9.OZRITqde9clot1E8Za_OsQ'
+        }
+    }
+}
+
+dependencies {
+    implementation "com.mapbox.vision:mapbox-android-vision:0.3.0"
+    implementation "com.mapbox.vision:mapbox-android-vision-ar:0.3.0"
+    implementation "com.mapbox.vision:mapbox-android-vision-safety:0.3.0"
+}
